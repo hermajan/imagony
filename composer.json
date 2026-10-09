@@ -1,0 +1,35 @@
+{
+	"name": "hermajan/imagony",
+	"description": "Symfony bundle and Twig extension for thumbnail generation.",
+	"type": "symfony-bundle",
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {
+			"Imagony\\": "src/"
+		}
+	},
+	"require": {
+		"php": ">=8.2",
+		"symfony/config": "^8.0",
+		"symfony/dependency-injection": "^8.0",
+		"symfony/http-kernel": "^8.0",
+		"twig/twig": "^3.0",
+		"symfony/finder": "^7.4|^8.0",
+		"symfony/yaml": "^7.4|^8.0",
+		"psr/log": "^1.0|^2.0|^3.0",
+		"imagine/imagine": "^1.5"
+	},
+	"suggest": {
+		"ext-gd": "GD driver. Needs WebP/AVIF support compiled in for those formats (docker-php-ext-configure gd --with-webp --with-avif)",
+		"ext-imagick": "Imagick driver, preferred when present. Needs an ImageMagick with WebP/AVIF delegates for those formats",
+		"symfony/console": "Provides `bin/console imagony:check` which diagnoses missing PHP image extensions and configuration problems"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^13.3"
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Imagony\\Tests\\": "tests/"
+		}
+	}
+}

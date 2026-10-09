@@ -1,0 +1,11 @@
+services:
+  Imagony\Commands\CheckCommand:
+    arguments:
+      $environment: '@Imagony\Diagnostics\Environment'
+      $parameters: '%imagony.thumbnails%'
+    tags: ['console.command']
+
+  Imagony\Commands\CleanCommand:
+    arguments:
+      $thumbnail: '@Imagony\Thumbnails\Thumbnail'
+    tags: ['console.command']

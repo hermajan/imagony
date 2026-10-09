@@ -1,0 +1,20 @@
+services:
+  Imagony\Diagnostics\Environment:
+    factory: ['Imagony\Diagnostics\Environment', 'current']
+
+  Imagony\Thumbnails\Thumbnail:
+    arguments:
+      $parameters: '%imagony.thumbnails%'
+      $logger: '@?logger'
+      $debug: '%kernel.debug%'
+    public: true
+
+  # serves the built-in fallback image from vendor, before the router
+  Imagony\EventListener\PlaceholderListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.request, priority: 256 }
+
+  Imagony\Twig\ImagonyExtension:
+    tags: ['twig.extension']
+    arguments:
+      - '@Imagony\Thumbnails\Thumbnail'

@@ -50,3 +50,7 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+
+# PHPUnit config of the bundle is committed
+!phpunit.dist.xml
+/.phpunit.cache/
